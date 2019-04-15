@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>唯品会网站注册</title>
+    <link rel="shortcut icon" href="../favicon.ico"/>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/Style.css">
+    <script src="../js/jquery.js"></script>
+    <!--<script src="../js/js.js"></script>-->
+    <script type="text/javascript">
+        $(function () {
+            class Register {
+                constructor() {
+                    this.phoneNumber = $('#phoneNumber');
+                    this.phoneTitle = $('#phoneNumberTitle');
+                    this.pass = $('#pass');
+                    this.passTitle = $('#passTitle')
+                    this.pass2 = $('#pass2')
+                    this.pass2Title = $('#pass2Title');
+                    this.registerTitle = $('#registerTitle')
+                    this.init();
+                }
+
+
+                init() {
+
+                    //#region 各种绑定事件
+                    //手机号码键盘抬起事件
+                    this.phoneNumber.keyup(() => {
+                        this.verify_phone();
+                    })
+
+                    //手机号码失去焦点事件
+                    this.phoneNumber.blur(() => {
+                        this.verify_phone();
+                    })
+
+
+                    //密码按键抬起事件
+                    this.pass.keyup(() => {
+                        this.verify_pass();
+                    })
+
+                    //密码失去焦点事件
+                    this.pass.blur(() => {
+                        this.verify_pass();
+                    })
+
+
+                    this.pass2.keyup(() => {
+                        this.verify_pass2()
+                    })
+                    this.pass2.blur(() => {
+                        this.verify_pass2()
+                    })
+
+                    //#endregion
+
+
+                    $('#btn_register').click((e) => {
+                        e.preventDefault();
+                        let isRealPhone = this.phoneNumber.parent().css('borderColor') == 'rgb(71, 184, 92)';
+                        let isRealPass = this.pass.parent().css('borderColor') == 'rgb(71, 184, 92)';
+                        let isRealPass2 = this.pass2.parent().css('borderColor') == 'rgb(71, 184, 92)';
+                        if (isRealPhone && isRealPass && isRealPass2) {
+                            $.ajax({
+                                type: 'get',
+                                url: 'http://www.liyangyf.com/ctrl/register.php',
+                                data: {
+                                    tel: this.phoneNumber.val(),
+                                    pass: this.pass.val()
+                                },
+                                success: (res) => {
+                                    // console.log(res);
+                                    switch (res) {
+                                        case '0':
+                                            console.log('注册失败,该用户已存在');
+                                            break;
+                                        case "1":
+                                            console.log('注册成功');
+
+                                            location.href = 'login.html';
+                                            break;
+                                    }
+                                }
+                            })
+
+                        }
+                    })
+
+                }
+
+                //验证手机号码
+                verify_phone() {
+                    this.phoneNumber.val() == "" && this.phoneNumber.parent().css({borderColor: '#f64a4a'}) && this.phoneTitle.text('手机号码不能为空');
+                    this.phoneNumber.val().match(/^1(3|5|7|8)\d{9}$/) ?
+                        this.phoneNumber.parent().css({borderColor: '#47b85c'}) && this.phoneTitle.text('') :
+                        this.phoneNumber.parent().css({borderColor: '#f64a4a'}) && this.phoneTitle.text('请输入正确的手机号码');
+                }
+
+                //验证密码
+                verify_pass() {
+                    this.pass.val() == "" && this.pass.parent().css({borderColor: '#f64a4a'}) && this.passTitle.text('密码不能为空');
+                    this.pass.val().length < 6 ?
+                        this.passTitle.text('请输入6-20位密码') && $('#pass').parent().css({borderColor: '#f64a4a'}) :
+                        this.passTitle.text('') && this.pass.parent().css({borderColor: '#47b85c'})
+
+                }
+
+                //确认密码
+                verify_pass2() {
+                    this.pass == "" && this.pass2.parent().css({borderColor: '#f64a4a'}) && this.pass2Title.text('密码不能为空');
+                    this.pass.val() != this.pass2.val() ?
+                        this.pass2.parent().css({borderColor: '#f64a4a'}) && this.pass2Title.text('两次输入的密码不一致') :
+                        this.pass2Title.text('') && this.pass2.parent().css({borderColor: '#47b85c'})
+                }
+
+            }
+
+
+            new Register()
+        })
+    </script>
+    <style>
+        html, body {width: 100%;}
+        header {height: 100px;}
+
+        .register {width: 100%;display: flex;justify-content: space-between;}
+        #c-body {/*background: url("../images/15290438491111.jpg") center;background-size: 1920px 650px;*/ height: 650px;}
+        .dialog-register {width: 360px;height: 555px;background-color: #fff;position: absolute;right: 20px;top: 0;bottom: 0;margin: auto;}
+        .title {border-bottom: 1px solid #e0e0e0;height: 50px;padding: 0 30px;}
+        .title span {font: 700 18px/50px "";}
+        .title span:nth-child(2) {float: right; font: 12px/50px "";color: #333;}
+        .title span:nth-child(2) a {color: #f10180;}
+        form {padding: 30px;}
+        form div {border-radius: 3px;width: 300px;height: 44px;border: 1px solid #b2b2b2;margin-bottom: 24px;}
+        form div i {display: inline-block; width: 20px;height: 20px;margin: 0 10px; vertical-align: middle; background-image: url("../images/sprites-hash-701a8168.png");}
+        form div:nth-child(1) i {background-position: -412px -161px;}
+        form div:nth-child(2) i, div:nth-child(3) i {background-position: -388px -161px;}
+        form div input {display: inline-block;height: 100%;outline: none;border: 0; width: 80%;}
+        form div > label {display: block;height: 24px; font: 14px/24px "";color: #f64a4a;}
+        form #check {margin-right: 6px;width: 18px;height: 18px;vertical-align: middle}
+        label {font: 12px/2 "";}
+        label > span {color: #1d94d1;}
+        form #btn_register {display: block;margin-top: 72px; width: 300px;height: 42px;background-color: #f10180;font: 16px/42px "";text-align: center;color: #fff;border-radius: 5px;}
+    </style>
+</head>
+<body>
+<header>
+    <div class="layout">
+        <div class="header-c">
+            <div class="header-c-left register">
+                <a href="../Index.html" class="logo" style="margin-top: 0;"><img src="http://p0.qhimg.com/t01a0b5c57143ad315a.png" alt=""></a>
+                <!--<a href="../Index.html" class="logos" style="margin-top: 0;"><img src=" ../images/bg/1504179372347.png" alt=""></a>-->
+            </div>
+        </div>
+    </div>
+</header>
+<section id="c-body">
+    <div class="layout">
+        <div class="dialog-register">
+            <div class="title">
+                <span>用户注册</span>
+                <span>已注册可以 <a href="Login.html">直接登录</a></span>
+            </div>
+            <form action="">
+                <div class="input-phone">
+                    <i></i>
+                    <input type="tel" id="phoneNumber" placeholder="请输入手机号码" maxlength="11" required autocomplete="tel">
+                    <label for="phoneNumber" id="phoneNumberTitle"></label>
+                </div>
+                <div class="input-password">
+                    <i></i>
+                    <input type="password" id="pass" placeholder="密码由6-20位字母,数字和符号组合" maxlength="20" minlength="6"
+                           required autocomplete="password">
+                    <label for="pass" id="passTitle"></label>
+                </div>
+                <div class="input-password2">
+                    <i></i>
+                    <input type="password" id="pass2" placeholder="请再次输入上面的密码" maxlength="20" minlength="6" required
+                           autocomplete="password">
+                    <label for="pass2" id="pass2Title"></label>
+                </div>
+                <input type="checkbox" id="check" checked disabled tip="不要乱改好吗"><label for="check">我已阅读并接受以下条款：<span>《360商城服务条款》《隐私条款》《用户支付服务协议》《用户信用服务协议》</span></label>
+                <label for="btn_register" id="registerTitle"></label>
+                <a href="#" id="btn_register">立即注册</a>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

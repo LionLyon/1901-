@@ -1,0 +1,110 @@
+<!--<script src="../js/jquery.js"></script>-->
+<!--<script src="../js/jquery.cookie.min.js"></script>-->
+<style>
+
+</style>
+<script type="text/javascript">
+    $(function () {
+        class List {
+            constructor() {
+                this.shopId = parseInt(location.href.substr(location.href.indexOf("?") + 1))
+                this.commoditys = ""
+                this.category = null;
+                this.property = null
+                this.propertyId = null;
+                this.brand = null;
+                // this.init();
+                this.loadGoods()
+            }
+            //获取商品列表
+            loadGoods() {
+                // $('#goods-list').html('')
+                // console.log(this.commoditys);
+                $.ajax({
+                    type: 'get',
+                    url: 'JSON/goods.json',
+                    async: true,
+                    dataType: 'jsonp',
+                    error: res => {
+                        let goodsList = JSON.parse(res.responseText)
+                        goodsList.forEach(value => {
+                            /**
+                             *  取出所有商品开始遍历并且生成列表
+                             */
+                            let html = `
+                                    <div class="goods">
+                                        <img class="new-goods-img" src="${value.pic}" title="${value.title}">
+                                        <div style="padding: 0 5px;">
+                                        <span class="new-goods-price">¥ <i>${value.price}</i></span> <span class="goods-former-price">¥${value.marketPrice}</span> <span
+                                            class="new-goods-discount">${value.discount}</span>
+                                        <p>${value.title}</p>
+                                        </div>
+                                    </div>`;
+                            $('#goods-list').append(html)
+                        })
+                        //给每个商品添加点击事件
+                        $('.goods').click(function (e) {
+                            e.preventDefault()
+                            let thisGoods = goodsList[$('.goods').index(this)];
+                            //$.cookie('wantbuy', JSON.stringify(goods[$('.goods').index(this)]), {path: '/'})
+                            let url = `components/Details.html?id=${thisGoods.id}`;
+                            window.open(url, "_blank");
+
+                        })
+
+                    }
+                })
+            }
+        }
+
+        new List();
+
+
+    })
+</script>
+
+<section id="nav"></section>
+<style>
+    .goods {
+        width: 218px;
+        margin-right: 20px;
+    }
+    .new-goods-img {
+        width: 100%;
+    }
+    .new-goods-price {
+        margin-right: 10px;
+        color: #f10180;
+    }
+    span {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+        padding-top: 5px;
+        color: #999;
+        margin-top: 5px;
+    }
+    .new-goods-discount {
+        float: right;
+        margin-left: 10px;
+        padding-right: 3px;
+        padding-left: 3px;
+        color: #f1b13b;
+        border: 1px solid #f1b13b;
+        border-radius: 2px;
+        margin-top: 5px;
+    }
+    p {
+        color: #666;
+    }
+
+    #goods-list {
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+</style>
+<main>
+    <!--<div id="list-fixed"></div>-->
+    <div id="goods-list"></div>
+</main>

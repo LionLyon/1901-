@@ -1,0 +1,92 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="http://mall.360.cn/build/css/qikoo-v.css" />
+<link rel="stylesheet" href="../css/Style.css">
+<div class="topbox" id="gotop">
+	<div class="top-container">
+		<ul>
+			<li class="topbox-item leftitem">
+				<a data-monitor="public_top_help" target="_blank" href="/help">帮助中心</a>
+			</li>
+			<li class="topbox-item leftitem">
+				<a data-monitor="public_top_collect" class="js-connect" href="javascript:;">收藏本站</a>
+			</li>
+			<li class="topbox-item rightitem navloginbox">
+				<div class="loginbefore nloginWrap">
+					<a class="btn-login-pop" href="components/Login.html">登录</a>
+					<a class="btn-reg-pop" href="components/Register.html">注册</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="top-container">
+	<!--logo start-->
+	<div class="header-logo">
+		<a class="sellogo" href="/" data-monitor="public_title_logo"><img src="http://p0.qhimg.com/t01a0b5c57143ad315a.png"></a>
+	</div>
+	<!--logo end-->
+	<div class="header-tools clearfix">
+		<!--搜索框 start-->
+		<div class="suggest-box">
+			<form id="__mall_search_form__" action="/search/" method="get">
+				<input type="text" id="__mall_search_kw__" class="suggest" name="q" style="display:inline-block" autocomplete="off" placeholder="360扫地机器人"><input type="submit" value="" class="search-btn" id="__mall_search_btn__" data-monitor="public_search_button">
+			</form>
+			<p class="searchkey">
+				<a href="https://m.mall.360.cn/rush/item?item_id=5bd6bd2c534b7f6295a9d3e6" target="_blank" data-monitor="public_search_key0">安全路由</a>
+				<a href="https://m.mall.360.cn/rush/item?item_id=5a90c9de534b7f6295a9d2c6" target="_blank" data-monitor="public_search_key1">儿童手表SE3 Plus</a>
+				<a href="https://m.mall.360.cn/rush/item?item_id=59355161215ea051fc7e8ad9" target="_blank" data-monitor="public_search_key2">智能摄像机云台版</a>
+				<a href="https://m.mall.360.cn/rush/item?item_id=5bc83bdc215ea051fc7e8dc1" target="_blank" data-monitor="public_search_key3">行车记录仪G600</a>
+				<a href="https://m.mall.360.cn/rush/item?item_id=5981950ae059bf3233c8aa55" target="_blank" data-monitor="public_search_key4">电话手表X1 Pro</a>
+			</p>
+		</div>
+		<!--搜索框 end-->
+		<!--购物车 start-->
+		<div class="topshopcart">
+			<a href="components/Cart.html" target="_blank" class="header-cart" ><i class="icon"></i>我的购物车<span class="cart-size">(0)</span></a>
+		</div>
+		<!--购物车 end-->
+	</div>
+
+</div>
+<div class="top-container">
+	<div class="navbox">
+		<div class="sublistbox" style="opacity: 0; height: 0px; display: none;"></div>
+		<ul class="navbar column-list clearfix">
+
+			<li class="top-item topfirst">
+				<a data-monitor="public_channel_allgoods" href="#" target="_blank">全部智能酷品</a>
+				
+			</li>
+
+			<li class="top-item " data-type="1">
+				<a href="#" target="_blank">安全路由</a>
+			</li>
+			<li class="top-item " data-type="2">
+				<a href="#" target="_blank">儿童手表</a>
+			</li>
+			<li class="top-item " data-type="3">
+				<a href="#" target="_blank">家庭安防</a>
+			</li>
+			<li class="top-item " data-type="4">
+				<a href="#" target="_blank">行车记录仪</a>
+			</li>
+			<li class="top-item " data-type="5">
+				<a href="#" target="_blank">生活电器</a>
+			</li>
+			<li class="top-item " data-type="6">
+				<a href="https://bbs.360.cn" target="_blank">社区</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+					let userInfo = $.cookie("userInfo");
+        if (userInfo) {
+
+            userInfo = JSON.parse(JSON.parse(userInfo));
+        	console.log(userInfo)
+            
+            $('.btn-login-pop').html(`欢迎您， [ ${userInfo.user} ]`)
+            $('.btn-reg-pop').remove()
+        }
+</script>

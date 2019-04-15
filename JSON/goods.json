@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "pic": "//a.vpimg3.com/upload/merchandise/pdcvis/612453/2019/0309/9/ccd4c480-dee2-4b7c-b5a8-3194cd3efa49_5t.jpg",
+    "title": "360 P0家用无线mini迷你穿墙WIFI光纤高速宽带路由器",
+    "price": 79,
+    "marketPrice": 199,
+    "discount": "4折"
+  },
+  {
+    "id": 1,
+    "pic": "//a.vpimg4.com/upload/merchandise/pdcvis/612453/2019/0309/114/0360e23f-22a7-4057-aa36-d197e3fea8de_5t.jpg",
+    "title": "360 P1家用无线wifi高速光纤智能大功率稳定穿墙路由器",
+    "price": 99,
+    "marketPrice": 199,
+    "discount": "5折"
+  },
+  {
+    "id": 2,
+    "pic": "//a.vpimg3.com/upload/merchandise/pdcpos/1100004034/2019/0409/137/ce7e22c8-2e9d-4f35-bfe5-985274a4bdc2_5t.jpg",
+    "title": "360 WIFI信号放大器 无线中继器家用路由器 信号扩展器",
+    "price": 59,
+    "marketPrice": 69,
+    "discount": "8.6折"
+  },
+  {
+    "id": 3,
+    "pic": "//a.vpimg3.com/upload/merchandise/pdcvis/612453/2019/0309/36/0fa9b80b-7723-4075-89ce-8bb1d2486a97_5t.jpg",
+    "title": "360 V4千兆宽带高速双频wifi信号放大智能穿墙无线路由器",
+    "price": 199,
+    "marketPrice": 299,
+    "discount": "6.7折"
+  },
+  {
+    "id": 4,
+    "pic": "//a.vpimg4.com/upload/merchandise/pdcpos/1100004034/2019/0111/110/968e86d1-3790-4aa0-972f-27bc43ef3135_5t.jpg",
+    "title": "360 360随身WiFi3 300M 无线网卡 迷你路由器",
+    "price": 24,
+    "marketPrice": 39,
+    "discount": "6.2折"
+  },
+  {
+    "id": 5,
+    "pic": "//a.vpimg2.com/upload/merchandise/pdcpos/1100004034/2019/0123/44/8e847fca-6eeb-4380-8254-e46f1ecce07e_5t.jpg",
+    "title": "360 360随身WiFi3 300M 无线网卡 迷你路由器",
+    "price": 189,
+    "marketPrice": 399,
+    "discount": "6.3折"
+  }
+]

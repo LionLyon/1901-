@@ -1,0 +1,40 @@
+.layout {width: 1020px;}
+#nav ul.header-b {width: 864px;}
+#details {width: 1020px;margin: 0 auto;}
+#nav_title {font: 12px/3 "";}
+#view {float: left;margin-right: 30px;}
+#view img {width: 420px;height: 420px;}
+#introduce {float: left;}
+#introduce .price_box {box-sizing: border-box; width: 550px;height: 85px;padding: 20px; background: linear-gradient(to bottom right, #faf5f8, #faf4f7);}
+#introduce .price_box .price {float: left;font: 20px/1 "";}
+#introduce .price_box .price .price_rise {color: #f43499;}
+#introduce .price_box .price .price_rise b {font: 38px/45px "";}
+#introduce h3 {width: 550px; font: 700 18px/24px "";padding: 10px 0;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+#introduce .price_box .discount_box {float: left;margin-left: 15px; padding: 5px 0;}
+#introduce .price_box .discount_box span {display: block;}
+#introduce .price_box .discount_box span.pbox_off {font-size: 12px;color: #f43499;border-radius: 3px;text-align: center;border: 1px solid #f43499;padding: 0 5px;}
+#introduce .price_box .discount_box span.pbox_market { color: #666;font-size: 14px;text-decoration: line-through;}
+#introduce > div {margin-bottom: 20px;display: flex;}
+#introduce > div > span {display: inline-block; font: 12px/32px "";color: #999;margin-right: 16px;}
+.freight span:nth-child(2) {color: #666;}
+
+.size ul {width: 320px; display: flex;justify-content: left;flex-wrap: wrap;}
+.size ul li {box-sizing: border-box; padding: 0 5px; height: 28px;border: 1px solid #ccc;margin: 0 10px 10px 0;text-align: center;}
+.size ul li a {display: block; font: 12px/28px "";}
+.size ul li.active {border-color: #f43499;}
+
+.count {}
+.count div {border: 1px solid #b3b3b3;width: 73px;height: 28px;display: flex;}
+.count div a {display: inline-block;user-select: none; text-align: center; width: 21px;height: 28px;font-size: 12px;line-height: 28px;}
+.count div a.disabled {color: #aaa;}
+.count div input {display: inline-block;outline: none;text-align: center;font-size: 12px;color: #333; width: 29px;height: 28px;border: 0; border-right: 1px solid #e4e3e3;border-left: 1px solid #e4e3e3;}
+.count div input::-webkit-outer-spin-button,
+.count div input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.btn_add {display: block;margin-left: 40px; width: 198px;height: 46px;background: #f10180;text-align: center;border-radius: 3px;}
+.btn_add span {line-height: 46px;color: #fff;}
+.btn_add span:nth-child(1) {font-size: 22px;}
+.btn_add span:nth-child(2) {font-size: 20px;}
